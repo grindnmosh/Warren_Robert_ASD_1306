@@ -28,26 +28,26 @@ URL: http://grind-design.com
 	
 	<body>
 		<section data-role="page" id="home">
-			<header data-role="header" data-position="fixed"><h1>Quality Experiences</h1></header>
+			<header data-role="header" data-position-fixed="false" ><h1 id="brand">Quality Experiences</h1></header>
 							
 			<section data-role="content">
 				<header><h2><a href="#add" class="browse" id="qualadd"><img id="quality" src="img/qualityfeature.png"></a></h2></header>
-				<a href="#view"><button data-role="button" value="View QAs" id="View">View QAs</button></a>
-				<a href="#about"><button data-role="button" value="About" id="About">About</button></a>
+				<a href="#view"><button data-role="button" data-theme="d" value="View QAs" id="View">View QAs</button></a>
+				<a href="#about"><button data-role="button" data-theme="a"value="About" id="About">About</button></a>
 			</section>
 			
 			<footer data-role="footer" data-theme="d" data-position="fixed">
 				<nav data-role="navbar">
 					<ul>
-						<li><a href="#home">Home</a></li>
-						<li><a href="https://twitter.com/grindnmosh">Follow Me</a></li>
-						<li><a href="#about">About</a></li>
+						<li><a href="#home" data-icon="home">Home</a></li>
+						<li><a href="https://twitter.com/grindnmosh" data-icon="info">Follow Me</a></li>
+						<li><a href="#about" data-icon="bars">About</a></li>
 					</ul>
 				</nav>
 			</footer>				
 		</section>
 		<section data-role="page" id="add">
-			<header data-role="header" data-position="fixed"><h1>Quality Experiences</h1></header>
+			<header data-role="header" data-position-fixed="false" ><h1 id="brand">Quality Experiences</h1></header>
 			
 			<section data-role="content" id="addFormEdits">
 				<form action="" id="addBill">
@@ -65,7 +65,7 @@ URL: http://grind-design.com
 							<div data-role="fieldcontain">
 						    	<label for="sale">Sale Call Type</label>
 						    	<legend>Sale Call Type</legend>
-						    	<select name="sale" id="sale" data-native-menu="false">
+						    	<select name="sale" id="sale" data-theme="d" data-native-menu="false">
 							        <option data-placeholder="true" value>--Choose Sales Call Type--</option>
 									<option value="ipad">iPad Sale</option>								
 									<option value="noIpad">iPad No Sale</option>
@@ -80,7 +80,7 @@ URL: http://grind-design.com
 							<div data-role="fieldcontain">
 						    	<label for="qaType">QA Style</label>
 						    	<legend>QA Style</legend>
-						    	<select name="qaType" id="qaType" data-native-menu="false">
+						    	<select name="qaType" id="qaType" data-theme="d" data-native-menu="false">
 							        <option data-placeholder="true" value>--Choose QA Style--</option>
 									<option value="individual">Listened With Agent(WAVE)</option>					
 									<option value="results">Listened(WAVE) Coached Later</option>
@@ -92,16 +92,16 @@ URL: http://grind-design.com
 							</div>
 							<div data-role="fieldcontain">
 						        <label for="prio">Score</label>
-						        <input type="range" id="score"  min="0" max="100" value="100">
+						        <input type="range" data-theme="d" id="score"  min="0" max="100" value="100">
 							</div>
 							<div data-role="fieldcontain">
 							    <fieldset data-role="controlgroup">
 							        <legend>PIPs</legend>
-							        <input type="checkbox" name="pipWw" id="pipWw" value-"PIP WW">
+							        <input type="checkbox" name="pipWw" id="pipWw" data-theme="d" value-"PIP WW">
 							        <label for="pipWw" >PIP WW</label>
-							        <input type="checkbox" name="pipFw" id="pipFw" value="PIP FW">
+							        <input type="checkbox" name="pipFw" id="pipFw" data-theme="d" value="PIP FW">
 							        <label for="pipFw" >PIP FW</label>
-							        <input type="checkbox" name="pipM" id="pipM" value="PIP Maintain">
+							        <input type="checkbox" name="pipM" id="pipM" data-theme="d" value="PIP Maintain">
 							        <label for="pipM" >PIP Maintain</label>
 							    </fieldset>
 				    		</div>
@@ -111,13 +111,13 @@ URL: http://grind-design.com
 						</div>
 				    </div>
 				    <div data-role="fieldcontain">
-						<button input type="submit" name="saveQa" id="saveQa" value="Save QA" data-role="button">Save QA</button>
+						<button input type="submit" name="saveQa" id="saveQa" data-theme="d" data-role="button" value="Save QA">Save QA</button>
 				    </div>
 			    	<div data-role="fieldcontain">
-						<button input type="reset" name="resetMe" id="resetMe" data-role="button" value="Reset Me">Reset QA</button>
+						<button input type="reset" name="resetMe" id="resetMe" data-theme="b" data-role="button" value="Reset Me">Reset QA</button>
 			    	</div>
 				    <div data-role="fieldcontain">
-						<a href="#view"><button name="view" id="display" data-role="button" value="Display QAs">Display QAs</button></a>
+						<a href="#view"><button name="view" id="display" data-theme="a" data-role="button" value="Display QAs">Display QAs</button></a>
 					</div>
 			    </div>
 			</form>
@@ -127,52 +127,59 @@ URL: http://grind-design.com
 			<footer data-role="footer" data-theme="d" data-position="fixed">
 				<nav data-role="navbar">
 					<ul>
-						<li><a href="#home">Home</a></li>
-						<li><a href="https://twitter.com/grindnmosh">Follow Me</a></li>
-						<li><a href="#about">About</a></li>
+						<li><a href="#home" data-icon="home">Home</a></li>
+						<li><a href="https://twitter.com/grindnmosh" data-icon="info">Follow Me</a></li>
+						<li><a href="#about" data-icon="bars">About</a></li>
 					</ul>
 				</nav>
 			</footer>
 		</section>
 		<section data-role="page" id="view">
-			<header data-role="header" data-position="fixed"><h1>Quality Experiences</h1></header>
+			<header data-role="header" data-position-fixed="false" ><h1 id="brand">Quality Experiences</h1></header>
 			
 			
 			<section data-role="content">
-				<header>QAs appear Here</header>
+				<header><h2>Saved QAs</h2></header>
+				<div>
+					<a href="#add" id="addNewBill"><button data-role="button" data-theme="d" value="Add Another QA">Add Another QA</button></a>
+				</div>
+				<div>
+					<button data-role="button" data-theme="a" value="Clear All QAs" id="clearAllData">Clear All QAs</button>
+				</div>
 			</section>
 			
 			<footer data-role="footer" data-theme="d" data-position="fixed">
 				<nav data-role="navbar">
 					<ul>
-						<li><a href="#home">Home</a></li>
-						<li><a href="https://twitter.com/grindnmosh">Follow Me</a></li>
-						<li><a href="#about">About</a></li>
+						<li><a href="#home" data-icon="home">Home</a></li>
+						<li><a href="https://twitter.com/grindnmosh" data-icon="info">Follow Me</a></li>
+						<li><a href="#about" data-icon="bars">About</a></li>
 					</ul>
 				</nav>
 			</footer>
 		</section>
 		<section data-role="page" id="about">
-			<header data-role="header" data-position="fixed"><h1>Quality Experiences</h1></header>
+			<header data-role="header" data-position-fixed="false" ><h1 id="brand">Quality Experiences</h1></header>
 			
 			
 			<section data-role="content">
 				<header><h2>Grind-Design projects for Full Sail</h2></header>
 				<p>Designer:  Robert Warren</p>
 				
-				<div data-role="collapsible" data-collapsed="true">
+				<div data-role="collapsible" data-theme="d" data-collapsed="true">
 					<h3>Source</h3>
-					<p> Follow my <a href = "https://github.com/grindnmosh/Warren_Robert_ASD_1306.git">github</a> for updates </p>
+					<p> Follow my <a href="https://github.com/grindnmosh/Warren_Robert_ASD_1306.git">github</a> for updates </p>
+					<p> See my <a href="http://grindnmosh.github.io/Warren_Robert_ASD_1306">gh-pages</a> for current results </p>
 				</div>
 				
-				<div data-role="collapsible" data-collapsed="true">
+				<div data-role="collapsible" data-theme="d" data-collapsed="true">
 					<h3>Social Networks</h3>
 					<p>Follow me on <a href = "https://twitter.com/grindnmosh">Twitter</a></p>
 					<p>Like Me on <a href = "https://www.facebook.com/grindnmosh">Facebook</a></p>
 					<p>+1 Me on <a href = "https://plus.google.com/115633683788706355406/">Google+</a></p>
 				</div>
 	
-				<div data-role="collapsible" data-collapsed="false">
+				<div data-role="collapsible" data-theme="d" data-collapsed="false">
 					<h3>Contact Info</h3>
 					<h4>For Bug and Error Reports:</h4>
 					<p>bugreports@grind-design.com</p>
@@ -184,7 +191,7 @@ URL: http://grind-design.com
 					<p>grindnmosh@grind-design.com</p>
 				</div>
 				
-				<div data-role="collapsible" data-collapsed="true" >
+				<div data-role="collapsible" data-theme="d" data-collapsed="true" >
 					<h3>Credits</h3>
 					<p>All current work is mine. Any thing I borrow, with permission of course, will be listed here.</p>
 				</div>
@@ -193,15 +200,15 @@ URL: http://grind-design.com
 			<footer data-role="footer" data-theme="d" data-position="fixed">
 				<nav data-role="navbar">
 					<ul>
-						<li><a href="#home">Home</a></li>
-						<li><a href="https://twitter.com/grindnmosh">Follow Me</a></li>
-						<li><a href="#about">About</a></li>
+						<li><a href="#home" data-icon="home">Home</a></li>
+						<li><a href="https://twitter.com/grindnmosh" data-icon="info">Follow Me</a></li>
+						<li><a href="#about" data-icon="bars">About</a></li>
 					</ul>
 				</nav>
 			</footer>	
 		</section>
 		<section data-role="page" id="err">
-			<header data-role="header" data-position="fixed"><h1>Quality Experiences</h1></header>
+			<header data-role="header" data-position-fixed="false" ><h1 id="brand">Quality Experiences</h1></header>
 			
 			
 			<section data-role="content">

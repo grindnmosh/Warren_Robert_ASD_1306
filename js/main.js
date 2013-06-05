@@ -12,19 +12,23 @@ URL: http://grind-design.com
 
 $(document).ready(function(){
 
-	$('#home').on(function() {
+	$('#home').on('pageinit', function() {
 		
 	});
 	
-	$('#add').on(function() {
+	$('#add').on('pageinit', function() {
 		
 	});
 	
-	$('#view').on(function() {
+	$('#view').on('pageinit', function() {
 		
 	});
 	
-	$('#about').on(function() {
+	$('#about').on('pageinit', function() {
+		
+	});
+	
+	$('#err').on('pageinit', function() {
 		
 	});
 
