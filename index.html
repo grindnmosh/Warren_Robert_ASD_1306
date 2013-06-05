@@ -29,7 +29,7 @@ URL: http://grind-design.com
 			<header data-role="header" data-position="fixed"><h1>Quality Experiences</h1></header>
 							
 			<section data-role="content">
-				<header><h2>The Feature Goes Here</h2></header>
+				<header><h2><a href="#add" class="browse" id="qualadd"><img id="quality" src="img/qualityfeature.png"></a></h2></header>
 				<a href="#view"><button data-role="button" value="View QAs" id="View">View QAs</button></a>
 				<a href="#about"><button data-role="button" value="About" id="About">About</button></a>
 			</section>
@@ -47,9 +47,75 @@ URL: http://grind-design.com
 		<section data-role="page" id="add">
 			<header data-role="header" data-position="fixed"><h1>Quality Experiences</h1></header>
 			
-			
-			<section data-role="content">
-				<header>Form Here</header>
+			<section data-role="content" id="addFormEdits">
+				<form action="" id="addBill">
+		    		<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup" id="qaForm">
+							<h2>Add A New QA</h2>
+							<div data-role="fieldcontain">
+								<label for="name" >Agent Name</label>
+							    <input type="text"  data-clear-btn="true" name="name" id="name" placeholder="Robert Warren" value="">
+							</div>
+							<div data-role="fieldcontain">
+						    	<label for="sale">Sale Call Type</label>
+						    	<legend>Sale Call Type</legend>
+						    	<select name="sale" id="sale" data-native-menu="false">
+							        <option data-placeholder="true" value>--Choose Sales Call Type--</option>
+									<option value="ipad">iPad Sale</option>								
+									<option value="noIpad">iPad No Sale</option>
+									<option value="cpu">CPU Sale</option>
+									<option value="noCpu">CPU No Sale</option>
+									<option value="acc">Accessory/Software Sale</option>
+									<option value="noacc">Accessory/Software No Sale</option>
+									<option value="other">Other Sale</option>
+									<option value="noOther">Other No Sale</option>
+								</select>
+							</div>
+							<div data-role="fieldcontain">
+						    	<label for="qaType">QA Style</label>
+						    	<legend>QA Style</legend>
+						    	<select name="qaType" id="qaType" data-native-menu="false">
+							        <option data-placeholder="true" value>--Choose QA Style--</option>
+									<option value="individual">Listened With Agent(WAVE)</option>					
+									<option value="results">Listened(WAVE) Coached Later</option>
+									<option value="side">Side By Side</option>
+									<option value="calibrate">Coached Calibrated Call</option>
+									<option value="neg">Negative Survey</option>
+									<option value="Other">Other</option>
+								</select>
+							</div>
+							<div data-role="fieldcontain">
+						        <label for="prio">Score</label>
+						        <input type="range" id="score"  min="0" max="100" value="100">
+							</div>
+							<div data-role="fieldcontain">
+							    <fieldset data-role="controlgroup">
+							        <legend>PIPs</legend>
+							        <input type="checkbox" name="pipWw" id="pipWw" value-"PIP WW">
+							        <label for="pipWw" >PIP WW</label>
+							        <input type="checkbox" name="pipFw" id="pipFw" value="PIP FW">
+							        <label for="pipFw" >PIP FW</label>
+							        <input type="checkbox" name="pipM" id="pipM" value="PIP Maintain">
+							        <label for="pipM" >PIP Maintain</label>
+							    </fieldset>
+				    		</div>
+						<div data-role="fieldcontain">
+						    <label for="textArea">Notes</label>
+						    <div><textarea id="textArea"></textarea></div>
+						</div>
+				    </div>
+				    <div data-role="fieldcontain">
+						<Submit name="saveQa" id="saveQa" value="Save QA" data-role="button">Save QA</Submit>
+				    </div>
+			    	<div data-role="fieldcontain">
+						<reset name="resetMe" id="resetMe" data-role="button" value="Reset Me">Reset QA</reset>
+			    	</div>
+				    <div data-role="fieldcontain">
+						<a href = "#view" id="displayLink"><button data-role="button" value="Display QAs">Display QAs</button></a>
+					</div>
+			    </div>
+			</form>
+
 			</section>
 			
 			<footer data-role="footer" data-position="fixed">
