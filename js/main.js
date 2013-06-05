@@ -11,16 +11,21 @@ URL: http://grind-design.com
 */
 
 $(document).ready(function(){
+
 	$('#home').on(function() {
 		
 	});
+	
 	$('#add').on(function() {
 		
 	});
+	
 	$('#view').on(function() {
 		
 	});
+	
 	$('#about').on(function() {
 		
 	});
+
 });
