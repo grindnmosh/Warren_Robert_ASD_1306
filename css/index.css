@@ -29,12 +29,7 @@ p {
 .input {
 	padding:6px;
 	width:315px;
-	border: 4px solid black;
-}
-input {
-	border:4px solid white;
-	padding:4px;
-	width:300px;
+	border: 1px solid black;
 }
 .highlight {
 	background-color: white;

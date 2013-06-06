@@ -17,20 +17,25 @@ $(document).ready(function(){
 	});
 	
 	$('#add').on('pageinit', function() {
-		$('input').focus(function() {
-			$(this)
-				.parent().addClass('highlight')
+		$('.input').on("focus", function() {
+			$(this).parent().addClass('highlight');
 		});
 		
-		$('input').blur(function(){
-			$(this)
-				.parent().removeClass('highlight')
+		$('.input').on("blur", function(){
+			$(this).parent().removeClass('highlight')
+		});
+		$("textarea").on("focus", function() {
+			$(this).parent().addClass('highlight');
+		});
+		
+		$("textarea").on("blur", function(){
+			$(this).parent().removeClass('highlight')
 		});
 		
 	});
 	
 	$('#view').on('pageinit', function() {
-		$("#clearAllData").click(function() {
+		$("#clearAllData").on("click", function() {
 			localStorage.clear();	
 		});
 	});
