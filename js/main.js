@@ -17,13 +17,27 @@ $(document).ready(function(){
 	});
 	
 	$('#add').on('pageinit', function() {
+		$('input').focus(function() {
+			$(this)
+				.parent().addClass('highlight')
+		});
 		
+		$('input').blur(function(){
+			$(this)
+				.parent().removeClass('highlight')
+		});
+		submitHandler:function() {
+			var data = qaForm.serializeArray();
+			getForm(data);
+		};
 	});
 	
 	$('#view').on('pageinit', function() {
-		
+		$("#clearAllData").click(function() {
+			localStorage.clear();	
+		});
 	});
-	
+		
 	$('#about').on('pageinit', function() {
 		
 	});
