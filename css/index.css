@@ -12,6 +12,9 @@ URL: http://grind-design.com
 */
 body {
 	margin: auto;
+	font-family: Arial, Helvetica, san-seriff;
+	width: 545px;
+	padding: 10px; 
 }
 h2 { 
 	text-align: center;
