@@ -10,7 +10,9 @@ Github: https://github.com/grindnmosh/Warren_Robert_1304_MIU.git
 URL: http://grind-design.com
 
 */
-
+body {
+	margin: auto;
+}
 h2 { 
 	text-align: center;
 }
@@ -34,4 +36,28 @@ p {
 .highlight {
 	background-color: white;
 	border: 4px solid blue;
+}
+dd {
+	margin: 0;
+	padding: 1em 0;
+	background: lightblue;
+}
+dt{
+	cursor: pointer;
+	font-family: serif;
+	color: white;
+	font-style: normal;
+	text-shadow: black;
+	text-decoration: inherit;
+	text-rendering: inherit;
+	font-size: 1em;
+	background: blue;
+	border-bottom: light blue;
+	border-top: light grey; 
+}
+dt:first-child {
+	border-top: none;
+}
+dt:nth-last-child(2) {
+	border-bottom: none;
 }
