@@ -73,7 +73,7 @@ $(document).ready(function(){
 			localStorage.setItem(id, JSON.stringify(qa));
 			alert("QA Saved!");
 			window.location.reload("#");
-			return this.key;
+			return false;
 			
 	};
 	var getData = function(key){
@@ -120,10 +120,9 @@ $(document).ready(function(){
 			alert("QA entry was Not deleted.");
 		};
 	}    
-	//broken edit
+	//broken 
     var editItem =function() {
-		var edit = localStorage.getItem(this.key);
-		var qa = JSON.parse(edit);
+		var qa = JSON.parse(localStorage.getItem(this.key));
 		$("#name").val(qa.name);
 		$("#call").val(qa.call);
 		$("#sale").val(qa.sale);
@@ -131,8 +130,8 @@ $(document).ready(function(){
 		$("#score").val(qa.score);
 		$("#notes").val(qa.notes);
 		$("#saveQa").html('Update QA').data('key', key); 
-		return this.key
     };
+    
     var autoFillData = function(){
         for(var n in sampleQa){
             var id = Math.floor(Math.random()*100000001);
