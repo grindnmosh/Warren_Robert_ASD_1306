@@ -24,7 +24,7 @@ $(document).ready(function(){
 			},
 			submitHandler: function() {
 				//var data = qaSub.serializeArray();
-				storeData(this.id);
+				storeData(this.key);
 			}
 		});
 	});	
@@ -53,25 +53,27 @@ $(document).ready(function(){
 
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
-
-	var storeData = function(key){
+	
+		var storeData = function(key){
 		key = $('#saveQa').data('key');
 		if (!key) {
 			var id = Math.floor(Math.random()*1000000);
 		} else {
 			var id = this.key;
 		}
+		
 		var qa = {};
 			qa.name = ["Name:", $("#name").val()];
 			qa.call = ["Date and Time:", $("#call").val()];
 			qa.sale = ["Sales Call Type:", $("#sale").val()];
 			qa.qaType = ["QA Style:", $("#qaType").val()];
 			qa.score = ["QA Score:", $("#score").val()];
+			qa.pip = ["PIP:", $("#addQa :radio:checked + label").text()];
 			qa.notes = ["Notes:", $("#notes").val()];
 			localStorage.setItem(id, JSON.stringify(qa));
-			alert("Log Saved!");
+			alert("QA Saved!");
 			window.location.reload("#");
-			return false;
+			return this.key;
 			
 	};
 	var getData = function(key){
@@ -84,51 +86,52 @@ $(document).ready(function(){
 		for(var i=0, l=localStorage.length; i<l;i++){
 			var key = localStorage.key(i),
 				qaCall = JSON.parse(localStorage.getItem(key)),
-				makeSubList = $('<li></li>'),
+				makeSubQa = $('<div></div>'),
 				createQaLi = $(
 					"<p>" + qaCall.name[0] + " " + qaCall.name[1] + "</p>" + 
 					"<p>" + qaCall.call[0] + " " + qaCall.call[1] + "</p>" +
 					"<p>" + qaCall.sale[0] + " " + qaCall.sale[1] + "</p>" +
 					"<p>" + qaCall.qaType[0] + " " + qaCall.qaType[1] + "</p>" + 
 					"<p>" + qaCall.score[0] + " " + qaCall.score[1] + "</p>" +
+					"<p>" + qaCall.pip[0] + " " + qaCall.pip[1] + "</p>" +
 					"<p>" + qaCall.notes[0] + " " + qaCall.notes[1] + "</p>"
 				);
-			var editLink = $("<button id='editButton'><a href='#addQa' id='edit"+key+"'> Edit QA</a></button>");
-				editLink.on('click', function(){
-					editItem();
+			var editBut = $("<button id='editButton'><a href='#addQa' id='edit"+key+"'> Edit QA</a></button>");
+				editBut.on('click', function(){
+					editItem(this.key);
 				});
-			var deleteLink = $("<button><a href='#addQa' id='delete"+key+"'>Delete QA</a></button>");
-				deleteLink.on('click', function(){
+			var deleteBut = $("<button><a href='#addQa' id='delete"+key+"'>Delete QA</a></button>");
+				deleteBut.on('click', function(){
 					deleteItem(this.key);
 				});	
-			makeSubList.append(createQaLi).append(editLink).append("<br>").append(deleteLink).appendTo("#qaContent")		
+			makeSubQa.append(createQaLi).append(editBut).append("<br>").append(deleteBut).appendTo("#qaContent")		
 		};
     };
         
     var deleteItem = function(){
-		var ask = confirm("Are you sure you want to delete this log entry?");
+		var ask = confirm("Are you sure you want to delete this QA entry?");
 		var key = localStorage.key(this.key);
 		if(ask){
 			localStorage.removeItem(key);
-			alert("Log Entry was deleted.");
+			alert("QA Entry was deleted.");
 			window.location = "#add";
 			window.location.reload("#");
 		}else{
-			alert("Log entry was Not deleted.");
+			alert("QA entry was Not deleted.");
 		};
 	}    
-    var editItem =function(key) {
-		var id = parseInt(key.match(/\d+/g));
-		var qa = JSON.parse(localStorage.getItem(id));
-		$("#name").val(qa.name[1]);
-		$("#call").val(qa.call[1]);
-		$("#sale").val(qa.sale[1]);
-		$("#qaType").val(qa.qaType[1]);
-		$("#score").val(qa.score[1]);
-		$("#notes").val(qa.notes[1]);
-		$("#view div form#addQa div.ui-field-contain.ui-body.ui-br div.ui-btn.ui-shadow.ui-btn-corner-all.ui-fullsize.ui-btn-block.ui-btn-up-b span.ui-btn-inner.ui-btn-corner-all span.ui-btn-text").text("Save QA Edit");
-		//Save the key value established in this function as a property of #addLogItem
-		$("#saveQa").attr("id", this.key);
+	//broken edit
+    var editItem =function() {
+		var edit = localStorage.getItem(this.key);
+		var qa = JSON.parse(edit);
+		$("#name").val(qa.name);
+		$("#call").val(qa.call);
+		$("#sale").val(qa.sale);
+		$("#qaType").val(qa.qaType);
+		$("#score").val(qa.score);
+		$("#notes").val(qa.notes);
+		$("#saveQa").html('Update QA').data('key', key); 
+		return this.key
     };
     var autoFillData = function(){
         for(var n in sampleQa){
