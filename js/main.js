@@ -68,7 +68,7 @@ $(document).ready(function(){
 			qa.qaType = ["QA Style:", $("#qaType").val()];
 			qa.score = ["QA Score:", $("#score").val()];
 			qa.notes = ["Notes:", $("#notes").val()];
-			localStorage.setItem(this.key, JSON.stringify(qa));
+			localStorage.setItem(id, JSON.stringify(qa));
 			alert("Log Saved!");
 			window.location.reload("#");
 			return false;
