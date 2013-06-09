@@ -104,7 +104,7 @@ $(document).ready(function(){
 				deleteBut.on('click', function(){
 					deleteItem(this.key);
 				});	
-			makeSubQa.append(createQaLi).append(editBut).append("<br>").append(deleteBut).appendTo("#qaContent")		
+			makeSubQa.append(createQaLi).append(editBut).append("<br>").append(deleteBut).appendTo("#qaContent")
 		};
     };
         
@@ -121,7 +121,7 @@ $(document).ready(function(){
 		};
 	}    
 	//broken 
-    var editItem =function() {
+    var editItem = function() {
 		var qa = JSON.parse(localStorage.getItem(this.key));
 		$("#name").val(qa.name);
 		$("#call").val(qa.call);
