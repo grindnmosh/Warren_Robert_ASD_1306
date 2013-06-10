@@ -44,22 +44,19 @@ $(document).ready(function(){
 			});
 		})();
 	});
-
-	$('#err').on('pageinit', function() {
-
+	$('#completed').on('pageinit', function() {
+		
 	});
-
-
-
-
+	
+	
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
-
-		var storeData = function(key){
-		key = $('#saveQa').data('key');
-		if (!key) {
+	var editKey = "";
+	
+	var storeData = function(){
+		if (!editKey) {
 			var id = Math.floor(Math.random()*1000000);
 		} else {
-			var id = this.key;
+			var id = editKey;
 		}
 
 		var qa = {};
@@ -96,40 +93,115 @@ $(document).ready(function(){
 					"<p>" + qaCall.pip[0] + " " + qaCall.pip[1] + "</p>" +
 					"<p>" + qaCall.notes[0] + " " + qaCall.notes[1] + "</p>"
 				);
-			var editBut = $("<button id='editButton'><a href='#addQa' id='edit"+key+"'> Edit QA</a></button>");
+			var editBut = $("<button data-key='"+key+"'><a href='#add'> Edit QA</a></button>");
 				editBut.on('click', function(){
-					editItem(this.key);
+					editKey = $(this).data('key');
+					editItem(editKey);
 				});
-			var deleteBut = $("<button><a href='#addQa' id='delete"+key+"'>Delete QA</a></button>");
+			var deleteBut = $("<button data-key='"+key+"'><a href='#addQa' id='delete"+key+"'>Delete QA</a></button>");
 				deleteBut.on('click', function(){
-					deleteItem(this.key);
+					editKey = $(this).data('key');
+					deleteItem(editKey);
+					console.log(editKey);
 				});	
-			makeSubQa.append(createQaLi).append(editBut).append("<br>").append(deleteBut).appendTo("#qaContent")
+		makeSubQa.append(createQaLi).append(editBut).append("<br>").append(deleteBut).appendTo("#qaContent")
 		};
     };
+    
+	$('#compPip').on('click', function () {
+		$.mobile.changePage("#completed",{});
+		$('#pipComp').empty();
+		$.ajax({
+			url			:	"xhr/data.xml",
+			type		:	"GET",
+			dataType	:	"xml",
+			success		:	function(data, status) {
+				alert("XML Success");
+				$(data).find("completed").each(function(){
+					var completed = {}
+						completed.name = $(this).find("name").text();
+						completed.call = $(this).find("call").text();
+						completed.sale = $(this).find("sale").text();
+						completed.qaType = $(this).find("qaType").text();
+						completed.score = $(this).find("score").text();
+						completed.pip = $(this).find("pip").text();
+						completed.notes = $(this).find("notes").text();
+						console.log(completed);
+					var makeSubList = $('<div></div>');
+					var makeSubLi = $(''+
+						'<div class="Data">' +
+							'<p>' + "Name: "  + completed.name + '</p>' +
+							'<p>' + "Date: "  + completed.call + '</p>' +
+							'<p>' + "Sales Call Type: " + completed.sale + '</p>' +
+							'<p>' + "QA Style: " + completed.qaType + '</p>' +
+							'<p>' + "Score: " + completed.score + '</p>' +
+							'<p>' + "PIP: " + completed.pip + '</p>' +
+							'<p>' + "Notes: " + completed.notes + '</p>' +
+							'<hr />' +
+						'</div>'
+					);
+					makeSubList.append(makeSubLi).appendTo('#pipComp');
+			});
+	        
+			//error		:	function(error, parserror) {
+			//	console.log(error, parserror);
+			//};
+			}	
+		});
+	});	
+    
+    
+    	
+	$('#actPip').on('click', function () {
+		$.mobile.changePage("#active",{});
+		$.ajax({
+			url			:	"xhr/data.json",
+			type		:	"GET",
+			dataType	:	"json",
+			success		:	function(data, status) {
+				console.log(data);
+				for (var i = 0, j = data.pipAlot.length; i < j; i++){
+					var act = data.pipAlot[i];
+					var makeSubList = $('<div></div>');
+					var makeSubLi = $(
+						'<p>' + "Name: " + act.name[1] + '</p>' +
+						'<p>' + "Date: " + act.call[1] + '</p>' +
+						'<p>' + "Sales Call Type: " + act.sale[0] + '</p>' +
+						'<p>' + "QA Style: " + act.qaType[0] + '</p>' +
+						'<p>' + "Score: " + act.score[0] + '</p>' +
+						'<p>' + "PIP: " + act.pip[0] + '</p>' + 
+						'<p>' + "Notes: " + act.notes[0] + '</p>'
+					);
+					makeSubList.append(makeSubLi).appendTo('#pipAct');
+			}
+			/*error		:	function(error, parserror) {
+				console.log(error, parserror);
+			}*/
+			}
+		});
+	});	
+
         
-    var deleteItem = function(){
+    var deleteItem = function(editKey){
 		var ask = confirm("Are you sure you want to delete this QA entry?");
-		var key = localStorage.key(this.key);
 		if(ask){
-			localStorage.removeItem(key);
-			alert("QA Entry was deleted.");
+			localStorage.removeItem(editKey);
+			alert("QA entry was deleted.");
 			window.location = "#add";
 			window.location.reload("#");
 		}else{
-			alert("QA entry was Not deleted.");
+			alert("QA entry was not deleted.");
 		};
-	}    
-	//broken 
-    var editItem = function() {
-		var qa = JSON.parse(localStorage.getItem(this.key));
-		$("#name").val(qa.name);
-		$("#call").val(qa.call);
-		$("#sale").val(qa.sale);
-		$("#qaType").val(qa.qaType);
-		$("#score").val(qa.score);
-		$("#notes").val(qa.notes);
-		$("#saveQa").html('Update QA').data('key', key); 
+	};    
+    var editItem = function(editKey) {
+		var qa = JSON.parse(localStorage.getItem(editKey));
+		$("#name").val(qa.name[1]);
+		$("#call").val(qa.call[1]);
+		$("#sale").val(qa.sale[1]);
+		$("#qaType").val(qa.qaType[1]);
+		$("#score").val(qa.score[1]);
+		$("#notes").val(qa.notes[1]);
+		$("#saveQA").val('Update QA').data('key', editKey); 
     };
     
     var autoFillData = function(){

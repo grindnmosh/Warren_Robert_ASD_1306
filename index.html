@@ -31,7 +31,9 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 							
 			<section data-role="content">
 				<header><h2 id="magic"><a href="#add" class="browse" id="qualadd"><img id="quality" src="img/qualityfeature.png"></a></h2></header>
-				<a href="#view"><button data-role="button" data-theme="d" value="View QAs" id="display2" class="display">View QAs</button></a>
+				<a href="#view"><button data-role="button" data-theme="d" value="View QAs" id="display2" class="display"></button></a>
+				<a href="#completed"><button data-role="button" data-theme="c" value="Completed PIPs-XML-" id="compPip" class="compPip"/></button></a>
+				<a href="#active"><button data-role="button" data-theme="b" value="Active PIPs-JSON-" id="actPip" class="actPip"></button></a>
 			</section>
 			
 			<footer data-role="footer" data-theme="d" data-position="fixed">
@@ -57,7 +59,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 							    <input type="text" class="required" data-clear-btn="true" name="name" id="name" placeholder="Robert Warren" value="">
 							</div>
 							<div data-role="fieldcontain">
-								<label for="call" >Date and Time</label>
+								<label for="call" >Date</label>
 							    <input type="text"  class="required" data-clear-btn="true" name="call" id="call" placeholder="12/31/13 05:00PM" value="">
 							</div>
 							<div data-role="fieldcontain">
@@ -112,13 +114,13 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 						</fieldset>
 				    </div>
 				    <div data-role="fieldcontain">
-						<button input type="submit" name="saveQa" id="saveQa" data-theme="d" data-role="button" >Save QA</button>
+						<button id="saveQa" class="submit" value="Save QA" input type="submit" data-theme="d" data-role="button" ></button>
 				    </div>
 			    	<div data-role="fieldcontain">
-						<button input type="reset" name="resetMe" id="resetMe" data-theme="b" data-role="button" value="Reset Me">Reset QA</button>
+						<button input type="reset" id="resetMe" data-theme="b" data-role="button" value="Reset QA"></button>
 			    	</div>
 				    <div data-role="fieldcontain">
-						<a href="#view"><button name="view" id="display" class="display" data-theme="a" data-role="button" value="Display QAs">Display QAs</button></a>
+						<a href="#view"><button id="display" class="display" data-theme="a" data-role="button" value="Display QAs"></button></a>
 					</div>
 			    </div>
 			</form>
@@ -201,35 +203,52 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 				</nav>
 			</footer>	
 		</section>
-		<section data-role="page" id="err">
+		<section data-role="page" id="active">
 			<header data-role="header" data-position-fixed="false" ><h1 id="brand">Quality Experiences</h1></header>
 			
 			
 			<section data-role="content">
-				<header>error page</header>
-				
+				<header><h2>Active PIPs</h2></header>
+				<div data-role="content" >
+					<div id="pipAct"></div>
+				</div>
 			</section>
-			<div data-role="dialog" id="errors" >
-			
-			<div data-role="header" data-position="fixed">
-				<h1>Missing Fields</h1>
-			</div>		
-			<div data-role="content">
-				<ul>
-				</ul>
-			</div>
-		</div>
 			
 			<footer data-role="footer" data-theme="d" data-position="fixed">
 				<nav data-role="navbar">
 					<ul>
-						<li><a href="#home">Home</a></li>
-						<li><a href="https://twitter.com/grindnmosh">Follow Me</a></li>
-						<li><a href="#about">About</a></li>
+						<li><a href="#home" data-icon="home">Home</a></li>
+						<li><a href="https://twitter.com/grindnmosh" data-icon="info">Follow Me</a></li>
+						<li><a href="#about" data-icon="bars">About</a></li>
 					</ul>
 				</nav>
 			</footer>
 		</section>
+		<section data-role="page" id="completed">
+			<header data-role="header" data-position-fixed="false" ><h1 id="brand">Quality Experiences</h1></header>
+			
+			
+			<section data-role="content">
+				<header>
+					<h2>Completed PIPs</h2>
+					<h3>On a maintain period</h3>
+				</header>
+				<div data-role="content" >
+					<div id="pipComp"></div>
+				</div>
+			</section>
+			
+			<footer data-role="footer" data-theme="d" data-position="fixed">
+				<nav data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="home">Home</a></li>
+						<li><a href="https://twitter.com/grindnmosh" data-icon="info">Follow Me</a></li>
+						<li><a href="#about" data-icon="bars">About</a></li>
+					</ul>
+				</nav>
+			</footer>
+		</section>
+
 		<script type="text/javascript" src="js/jquery1.10.js"></script>
 		<script type="text/javascript" src="js/jqm1.3.js"></script>
 		<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>

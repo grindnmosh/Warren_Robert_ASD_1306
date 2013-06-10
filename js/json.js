@@ -11,7 +11,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 var sampleQa = {
 	"1": {
 		"name": ["Agent Name: ", "Mike"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "CPU Sale"],
 		"qaType": ["QA Style: ", "Coached Calibrated Call"],
 		"score": ["Score: ", "75"],
@@ -20,7 +20,7 @@ var sampleQa = {
 	},
 	"2": {
 		"name": ["Agent Name: ", "Chris"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "iPad Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "80"],
@@ -29,7 +29,7 @@ var sampleQa = {
 	},
 	"3": {
 		"name": ["Agent Name: ", "Ceri"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "CPU No Sale"],
 		"qaType": ["QA Style: ", "Coached Calibrated Call"],
 		"score": ["Score: ", "90"],
@@ -38,7 +38,7 @@ var sampleQa = {
 	},
 	"4": {
 		"name": ["Agent Name: ", "Audra"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "CPU Sale"],
 		"qaType": ["QA Style: ", "Listened(WAVE) Coached Later"],
 		"score": ["Score: ", "100"],
@@ -47,7 +47,7 @@ var sampleQa = {
 	},
 	"5": {
 		"name": ["Agent Name: ", "John"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "iPad No Sale"],
 		"qaType": ["QA Style: ", "Negative Survey"],
 		"score": ["Score: ", "82"],
@@ -56,7 +56,7 @@ var sampleQa = {
 	},
 	"6": {
 		"name": ["Agent Name: ", "Brittney"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "Accessory/Software Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "95"],
@@ -65,7 +65,7 @@ var sampleQa = {
 	},
 	"7": {
 		"name": ["Agent Name: ", "Tabia"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "Other Sale"],
 		"qaType": ["QA Style: ", "Negative Survey"],
 		"score": ["Score: ", "65"],
@@ -74,7 +74,7 @@ var sampleQa = {
 	},
 	"8": {
 		"name": ["Agent Name: ", "Eric"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "Other No Sale"],
 		"qaType": ["QA Style: ", "Other"],
 		"score": ["Score: ", "92"],
@@ -83,7 +83,7 @@ var sampleQa = {
 	},
 	"9": {
 		"name": ["Agent Name: ", "Danielle"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "Accessory/Software No Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "62"],
@@ -92,7 +92,7 @@ var sampleQa = {
 	},
 	"10": {
 		"name": ["Agent Name: ", "Erik"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "CPU Sale"],
 		"qaType": ["QA Style: ", "Negative Survey"],
 		"score": ["Score: ", "70"],
@@ -101,7 +101,7 @@ var sampleQa = {
 	},
 	"11": {
 		"name": ["Agent Name: ", "Tanya"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "Accessory/Software Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "98"],
@@ -110,7 +110,7 @@ var sampleQa = {
 	},
 	"12": {
 		"name": ["Agent Name: ", "Derrik"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "CPU No Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "55"],
@@ -119,34 +119,34 @@ var sampleQa = {
 	},
 	"13": {
 		"name": ["Agent Name: ", "Paul"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "iPad Sale"],
 		"qaType": ["QA Style: ", "Listened With Agent(WAVE)"],
 		"score": ["Score: ", "100"],
-		"pip": ["PIP: ", "N/A"],
+		"pip": ["PIP: ", "PIP Maintain"],
 		"notes": ["Notes: ", "Great Call"]
 	},
 	"14": {
 		"name": ["Agent Name: ", "Donna"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "Other Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "75"],
-		"pip": ["PIP: ", "N/A"],
-		"notes": ["Notes: ", " "]
+		"pip": ["PIP: ", "PIP Maintain"],
+		"notes": ["Notes: ", "Better follow up, courtesy and politeness, rapport"]
 	},
 	"15": {
 		"name": ["Agent Name: ", "Andrea"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "CPU Sale"],
 		"qaType": ["QA Style: ", "Listened(WAVE) Coached Later"],
 		"score": ["Score: ", "90"],
-		"pip": ["PIP: ", "N/A"],
-		"notes": ["Notes: ", " "]
+		"pip": ["PIP: ", "PIP Maintain"],
+		"notes": ["Notes: ", "Make sure you are providing contact info and full next steps"]
 	},
 	"16": {
 		"name": ["Agent Name: ", "Nicole"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "Accessory/Software No Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "92"],
@@ -155,16 +155,16 @@ var sampleQa = {
 	},
 	"17": {
 		"name": ["Agent Name: ", "Alisha"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "CPU NoSale"],
 		"qaType": ["QA Style: ", "Listened With Agent(WAVE)"],
 		"score": ["Score: ", "95"],
-		"pip": ["PIP: ", "N/A"],
-		"notes": ["Notes: ", "Psycho"]
+		"pip": ["PIP: ", "PIP Maintain"],
+		"notes": ["Notes: ", "Customer was irate, agent did great job deescalating"]
 	},
 	"18": {
 		"name": ["Agent Name: ", "Robley"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "iPad No Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "80"],
@@ -173,7 +173,7 @@ var sampleQa = {
 	},
 	"19": {
 		"name": ["Agent Name: ", "Joshua"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "CPU No Sale"],
 		"qaType": ["QA Style: ", "Listened With Agent(WAVE)"],
 		"score": ["Score: ", "60"],
@@ -182,7 +182,7 @@ var sampleQa = {
 	},
 	"20": {
 		"name": ["Agent Name: ", "Ashley"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "Accessory/Software Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "95"],
@@ -191,7 +191,7 @@ var sampleQa = {
 	},
 	"21": {
 		"name": ["Agent Name: ", "Harold"],
-		"call": ["Date and Time: ", "2013-06-08"],
+		"call": ["Date: ", "2013-06-08"],
 		"sale": ["Sales Call Type: ", "Other Sale"],
 		"qaType": ["QA Style: ", "Listened(WAVE) Coached Later"],
 		"score": ["Score: ", "62"],
