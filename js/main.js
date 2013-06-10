@@ -142,11 +142,12 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 					);
 					makeSubList.append(makeSubLi).appendTo('#pipComp');
 			});
-	        
-			//error		:	function(error, parserror) {
-			//	console.log(error, parserror);
-			//};
-			}	
+	        },
+			error : function(error,parseerror){
+				console.log("Error: " + error + "\nParse Error :" + parseerror)
+			}
+
+				
 		});
 	});	
     
@@ -159,22 +160,20 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 			type		:	"GET",
 			dataType	:	"json",
 			success		:	function(data, status) {
-				console.log(data);
-				for (var i = 0, j = data.length; i < j; i++){
-					var act = data[i];
+				alert("JSON Success");
+				$.each(data, function(i, data) {
 					var makeSubList = $('<div></div>');
 					var makeSubLi = $(
-						'<p>' + "Name: " + act.name[0] + '</p>' +
-						'<p>' + "Date: " + act.call[0] + '</p>' +
-						'<p>' + "Sales Call Type: " + act.sale[0] + '</p>' +
-						'<p>' + "QA Style: " + act.qaType[0] + '</p>' +
-						'<p>' + "Score: " + act.score[0] + '</p>' +
-						'<p>' + "PIP: " + act.pip[0] + '</p>' + 
-						'<p>' + "Notes: " + act.notes[0] + '</p>'
+						'<p>' + "Name: " + data.name + '</p>' +
+						'<p>' + "Date: " + data.call + '</p>' +
+						'<p>' + "Sales Call Type: " + data.sale + '</p>' +
+						'<p>' + "QA Style: " + data.qaType + '</p>' +
+						'<p>' + "Score: " + data.score + '</p>' +
+						'<p>' + "PIP: " + data.pip + '</p>' + 
+						'<p>' + "Notes: " + data.notes + '</p>'
 					);
-					console.log(makeSubLi);
 					makeSubList.append(makeSubLi).appendTo('#pipAct');
-				}
+				});
 			},
 			error : function(error,parseerror){
 				console.log("Error: " + error + "\nParse Error :" + parseerror)
