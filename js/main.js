@@ -11,7 +11,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 
 */
 
-$(document).ready(function(){
+
 
 	$('#home').on('pageinit', function() {
 
@@ -154,7 +154,7 @@ $(document).ready(function(){
     	
 	$('#actPip').on('click', function () {
 		$.mobile.changePage("#active",{});
-		$.ajax({
+			$.ajax({
 			url			:	"xhr/data.json",
 			type		:	"GET",
 			dataType	:	"json",
@@ -173,10 +173,10 @@ $(document).ready(function(){
 						'<p>' + "Notes: " + act.notes[0] + '</p>'
 					);
 					makeSubList.append(makeSubLi).appendTo('#pipAct');
-			}
-			/*error		:	function(error, parserror) {
-				console.log(error, parserror);
-			}*/
+				}
+			},
+			error : function(error,parseerror){
+				console.log("Error: " + error + "\nParse Error :" + parseerror)
 			}
 		});
 	});	
@@ -200,8 +200,9 @@ $(document).ready(function(){
 		$("#sale").val(qa.sale[1]);
 		$("#qaType").val(qa.qaType[1]);
 		$("#score").val(qa.score[1]);
-		$("#notes").val(qa.notes[1]);
-		$("#saveQA").val('Update QA').data('key', editKey); 
+		$("#notes").val(qa.notes[1]);("Save QA")
+		$('#saveQa').prev('.ui-btn-inner').children('.ui-btn-text').html('Update QA');
+		$("#saveQa").val('Update QA').data('key', editKey); // changes in DOM element but button does not change to match its value.
     };
     
     var autoFillData = function(){
@@ -245,4 +246,3 @@ $(document).ready(function(){
 	$('#clearAllData').on('click', clearData);	
 	$("#saveQa").on("click", storeData);
     $(".display").on("click", getData);	
-});
