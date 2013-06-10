@@ -12,11 +12,11 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 */
 
 $(document).ready(function(){
-	
+
 	$('#home').on('pageinit', function() {
-		
+
 	});
-	
+
 	$('#add').on('pageinit', function() {
 		var qaSub = $('#addQa');
 		qaSub.validate({
@@ -28,13 +28,13 @@ $(document).ready(function(){
 			}
 		});
 	});	
-			
-	
-	
+
+
+
 	$('#view').on('pageinit', function(id, qa) {
-		
+
 	});
-		
+
 	$('#about').on('pageinit', function() {
 		(function() {
 			$("dd").filter(":nth-child(n+4)").hide();
@@ -44,16 +44,16 @@ $(document).ready(function(){
 			});
 		})();
 	});
-	
+
 	$('#err').on('pageinit', function() {
-		
+
 	});
-	
+
 
 
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
-	
+
 		var storeData = function(key){
 		key = $('#saveQa').data('key');
 		if (!key) {
@@ -61,7 +61,7 @@ $(document).ready(function(){
 		} else {
 			var id = this.key;
 		}
-		
+
 		var qa = {};
 			qa.name = ["Name:", $("#name").val()];
 			qa.call = ["Date and Time:", $("#call").val()];
@@ -74,7 +74,7 @@ $(document).ready(function(){
 			alert("QA Saved!");
 			window.location.reload("#");
 			return false;
-			
+
 	};
 	var getData = function(key){
 		if(localStorage.length === 0){
@@ -82,7 +82,7 @@ $(document).ready(function(){
 			alert("There is no data in Local Storage so default data was added.");
 		}
 		$.mobile.changePage("#view");
-		
+
 		for(var i=0, l=localStorage.length; i<l;i++){
 			var key = localStorage.key(i),
 				qaCall = JSON.parse(localStorage.getItem(key)),
@@ -139,7 +139,7 @@ $(document).ready(function(){
         }
     };  
 
-	
+
 	$('input').on("focus", function() {
 		$(this).parent().addClass('highlight');
 		return false;
@@ -156,10 +156,10 @@ $(document).ready(function(){
 		$(this).parent().removeClass('highlight');
 		return false;
 	});
-	
-	
-	
-	
+
+
+
+
 	var clearData = function(){
 		if (localStorage.length === 0) {
 			alert("There are no QAs to clear.");
@@ -172,5 +172,5 @@ $(document).ready(function(){
 	};
 	$('#clearAllData').on('click', clearData);	
 	$("#saveQa").on("click", storeData);
-    $("#display").on("click", getData);	
+    $(".display").on("click", getData);	
 });
