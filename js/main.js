@@ -164,14 +164,15 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 					var act = data[i];
 					var makeSubList = $('<div></div>');
 					var makeSubLi = $(
-						'<p>' + "Name: " + act.name[1] + '</p>' +
-						'<p>' + "Date: " + act.call[1] + '</p>' +
+						'<p>' + "Name: " + act.name[0] + '</p>' +
+						'<p>' + "Date: " + act.call[0] + '</p>' +
 						'<p>' + "Sales Call Type: " + act.sale[0] + '</p>' +
 						'<p>' + "QA Style: " + act.qaType[0] + '</p>' +
 						'<p>' + "Score: " + act.score[0] + '</p>' +
 						'<p>' + "PIP: " + act.pip[0] + '</p>' + 
 						'<p>' + "Notes: " + act.notes[0] + '</p>'
 					);
+					console.log(makeSubLi);
 					makeSubList.append(makeSubLi).appendTo('#pipAct');
 				}
 			},
