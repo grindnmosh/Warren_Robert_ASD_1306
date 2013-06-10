@@ -160,8 +160,8 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 			dataType	:	"json",
 			success		:	function(data, status) {
 				console.log(data);
-				for (var i = 0, j = data.pipAlot.length; i < j; i++){
-					var act = data.pipAlot[i];
+				for (var i = 0, j = data.length; i < j; i++){
+					var act = data[i];
 					var makeSubList = $('<div></div>');
 					var makeSubLi = $(
 						'<p>' + "Name: " + act.name[1] + '</p>' +
