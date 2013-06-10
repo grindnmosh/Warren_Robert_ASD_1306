@@ -170,7 +170,8 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 						'<p>' + "QA Style: " + data.qaType + '</p>' +
 						'<p>' + "Score: " + data.score + '</p>' +
 						'<p>' + "PIP: " + data.pip + '</p>' + 
-						'<p>' + "Notes: " + data.notes + '</p>'
+						'<p>' + "Notes: " + data.notes + '</p>' + 
+						'<hr />'
 					);
 					makeSubList.append(makeSubLi).appendTo('#pipAct');
 				});
