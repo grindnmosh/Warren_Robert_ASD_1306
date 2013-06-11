@@ -102,10 +102,9 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 				deleteBut.on('click', function(){
 					editKey = $(this).data('key');
 					deleteItem(editKey);
-					console.log(editKey);
 				});	
-		makeSubQa.append(createQaLi).append(editBut).append("<br>").append(deleteBut).appendTo("#qaContent")
-		};
+		makeSubQa.append(createQaLi).append(editBut).append("<br>").append(deleteBut).appendTo("#qaContent");
+		}
     };
     
 	$('#compPip').on('click', function () {
@@ -144,7 +143,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 			});
 	        },
 			error : function(error,parseerror){
-				console.log("Error: " + error + "\nParse Error :" + parseerror)
+				console.log("Error: " + error + "\nParse Error :" + parseerror);
 			}
 
 				
@@ -177,7 +176,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 				});
 			},
 			error : function(error,parseerror){
-				console.log("Error: " + error + "\nParse Error :" + parseerror)
+				console.log("Error: " + error + "\nParse Error :" + parseerror);
 			}
 		});
 	});	
@@ -192,7 +191,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 			window.location.reload("#");
 		}else{
 			alert("QA entry was not deleted.");
-		};
+		}
 	};    
     var editItem = function(editKey) {
 		var qa = JSON.parse(localStorage.getItem(editKey));
@@ -201,7 +200,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 		$("#sale").val(qa.sale[1]);
 		$("#qaType").val(qa.qaType[1]);
 		$("#score").val(qa.score[1]);
-		$("#notes").val(qa.notes[1]);("Save QA")
+		$("#notes").val(qa.notes[1]);
 		$('#saveQa').prev('.ui-btn-inner').children('.ui-btn-text').html('Update QA');
 		$("#saveQa").val('Update QA').data('key', editKey); // changes in DOM element but button does not change to match its value.
     };
