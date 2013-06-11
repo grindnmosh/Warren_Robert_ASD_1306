@@ -48,6 +48,10 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 		
 	});
 	
+	$('#active').on('pageinit', function() {
+		
+	});
+	
 	
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
 	var editKey = "";
@@ -154,6 +158,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
     	
 	$('#actPip').on('click', function () {
 		$.mobile.changePage("#active",{});
+		$('#pipAct').empty();
 			$.ajax({
 			url			:	"xhr/data.json",
 			type		:	"GET",
@@ -194,6 +199,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 		}
 	};    
     var editItem = function(editKey) {
+    	var pip = ("#addQa :radio:checked + label")
 		var qa = JSON.parse(localStorage.getItem(editKey));
 		$("#name").val(qa.name[1]);
 		$("#call").val(qa.call[1]);
@@ -202,7 +208,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 		$("#score").val(qa.score[1]);
 		$("#notes").val(qa.notes[1]);
 		$('#saveQa').prev('.ui-btn-inner').children('.ui-btn-text').html('Update QA');
-		$("#saveQa").val('Update QA').data('key', editKey); // changes in DOM element but button does not change to match its value.
+		$("#saveQa").val('Update QA').data('key', editKey); 
     };
     
     var autoFillData = function(){
@@ -214,25 +220,22 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 
 
 	$('input').on("focus", function() {
-		$(this).parent().addClass('highlight');
-		return false;
-	});
-	$('input').on("blur", function(){
-		$(this).parent().removeClass('highlight');
+		var $this = $(this).parent();
+		$this.addClass('highlight');
+		$('input').on("blur", function(){
+			$this.removeClass('highlight');
+		});
 		return false;
 	});
 	$("textarea").on("focus", function() {
-		$(this).parent().addClass('highlight');
+		var $this = $(this).parent();
+		$this.addClass('highlight');
+		$("textarea").on("blur", function(){
+			$this.removeClass('highlight');
+		});
 		return false;
 	});
-	$("textarea").on("blur", function(){
-		$(this).parent().removeClass('highlight');
-		return false;
-	});
-
-
-
-
+	
 	var clearData = function(){
 		if (localStorage.length === 0) {
 			alert("There are no QAs to clear.");
