@@ -69,7 +69,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 			qa.sale = ["Sales Call Type:", $("#sale").val()];
 			qa.qaType = ["QA Style:", $("#qaType").val()];
 			qa.score = ["QA Score:", $("#score").val()];
-			qa.pip = ["PIP:", $("#addQa :radio:checked + label").text()];
+			//qa.pip = ["PIP:", $("#addQa :radio:checked + label").text()];
 			qa.notes = ["Notes:", $("#notes").val()];
 			localStorage.setItem(id, JSON.stringify(qa));
 			alert("QA Saved!");
@@ -138,7 +138,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 							'<p>' + "Sales Call Type: " + completed.sale + '</p>' +
 							'<p>' + "QA Style: " + completed.qaType + '</p>' +
 							'<p>' + "Score: " + completed.score + '</p>' +
-							'<p>' + "PIP: " + completed.pip + '</p>' +
+							//'<p>' + "PIP: " + completed.pip + '</p>' +
 							'<p>' + "Notes: " + completed.notes + '</p>' +
 							'<hr />' +
 						'</div>'
@@ -173,7 +173,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 						'<p>' + "Sales Call Type: " + data.sale + '</p>' +
 						'<p>' + "QA Style: " + data.qaType + '</p>' +
 						'<p>' + "Score: " + data.score + '</p>' +
-						'<p>' + "PIP: " + data.pip + '</p>' + 
+						//'<p>' + "PIP: " + data.pip + '</p>' + 
 						'<p>' + "Notes: " + data.notes + '</p>' + 
 						'<hr />'
 					);
