@@ -15,7 +15,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "CPU Sale"],
 		"qaType": ["QA Style: ", "Coached Calibrated Call"],
 		"score": ["Score: ", "75"],
-		"pip": ["PIP: ", "N/A"],
+		//"pip": ["PIP: ", "N/A"],
 		"notes": ["Notes: ", " "]
 	},
 	"2": {
@@ -24,7 +24,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "iPad Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "80"],
-		"pip": ["PIP: ", "N/A"],
+		//"pip": ["PIP: ", "N/A"],
 		"notes": ["Notes: ", " "]
 	},
 	"3": {
@@ -33,7 +33,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "CPU No Sale"],
 		"qaType": ["QA Style: ", "Coached Calibrated Call"],
 		"score": ["Score: ", "90"],
-		"pip": ["PIP: ", "N/A"],
+		//"pip": ["PIP: ", "N/A"],
 		"notes": ["Notes: ", " "]
 	},
 	"4": {
@@ -42,7 +42,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "CPU Sale"],
 		"qaType": ["QA Style: ", "Listened(WAVE) Coached Later"],
 		"score": ["Score: ", "100"],
-		"pip": ["PIP: ", "N/A"],
+		//"pip": ["PIP: ", "N/A"],
 		"notes": ["Notes: ", "Great Call"]
 	},
 	"5": {
@@ -51,7 +51,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "iPad No Sale"],
 		"qaType": ["QA Style: ", "Negative Survey"],
 		"score": ["Score: ", "82"],
-		"pip": ["PIP: ", "PIP WW"],
+		//"pip": ["PIP: ", "PIP WW"],
 		"notes": ["Notes: ", "Good Effort"]
 	},
 	"6": {
@@ -60,7 +60,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "Accessory/Software Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "95"],
-		"pip": ["PIP: ", "N/A"],
+		//"pip": ["PIP: ", "N/A"],
 		"notes": ["Notes: ", " "]
 	},
 	"7": {
@@ -69,7 +69,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "Other Sale"],
 		"qaType": ["QA Style: ", "Negative Survey"],
 		"score": ["Score: ", "65"],
-		"pip": ["PIP: ", "PIP FW"],
+		//"pip": ["PIP: ", "PIP FW"],
 		"notes": ["Notes: ", "You need to focus on helping your customers"]
 	},
 	"8": {
@@ -78,7 +78,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "Other No Sale"],
 		"qaType": ["QA Style: ", "Other"],
 		"score": ["Score: ", "92"],
-		"pip": ["PIP: ", "N/A"],
+		//"pip": ["PIP: ", "N/A"],
 		"notes": ["Notes: ", " "]
 	},
 	"9": {
@@ -87,7 +87,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "Accessory/Software No Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "62"],
-		"pip": ["PIP: ", "PIP FW"],
+		//"pip": ["PIP: ", "PIP FW"],
 		"notes": ["Notes: ", "No Effort"]
 	},
 	"10": {
@@ -96,7 +96,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "CPU Sale"],
 		"qaType": ["QA Style: ", "Negative Survey"],
 		"score": ["Score: ", "70"],
-		"pip": ["PIP: ", "PIP FW"],
+		//"pip": ["PIP: ", "PIP FW"],
 		"notes": ["Notes: ", "believe inability"]
 	},
 	"11": {
@@ -105,7 +105,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "Accessory/Software Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "98"],
-		"pip": ["PIP: ", "N/A"],
+		//"pip": ["PIP: ", "N/A"],
 		"notes": ["Notes: ", "so close"]
 	},
 	"12": {
@@ -114,7 +114,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "CPU No Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "55"],
-		"pip": ["PIP: ", "PIP WW"],
+		//"pip": ["PIP: ", "PIP WW"],
 		"notes": ["Notes: ", "struggling with discovery, rapport and asking for the sale"]
 	},
 	"13": {
@@ -123,7 +123,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "iPad Sale"],
 		"qaType": ["QA Style: ", "Listened With Agent(WAVE)"],
 		"score": ["Score: ", "100"],
-		"pip": ["PIP: ", "PIP Maintain"],
+		//"pip": ["PIP: ", "PIP Maintain"],
 		"notes": ["Notes: ", "Great Call"]
 	},
 	"14": {
@@ -132,7 +132,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "Other Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "75"],
-		"pip": ["PIP: ", "PIP Maintain"],
+		//"pip": ["PIP: ", "PIP Maintain"],
 		"notes": ["Notes: ", "Better follow up, courtesy and politeness, rapport"]
 	},
 	"15": {
@@ -141,7 +141,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "CPU Sale"],
 		"qaType": ["QA Style: ", "Listened(WAVE) Coached Later"],
 		"score": ["Score: ", "90"],
-		"pip": ["PIP: ", "PIP Maintain"],
+		//"pip": ["PIP: ", "PIP Maintain"],
 		"notes": ["Notes: ", "Make sure you are providing contact info and full next steps"]
 	},
 	"16": {
@@ -150,7 +150,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "Accessory/Software No Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "92"],
-		"pip": ["PIP: ", "PIP Maintain"],
+		//"pip": ["PIP: ", "PIP Maintain"],
 		"notes": ["Notes: ", "Great improvements"]
 	},
 	"17": {
@@ -159,7 +159,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "CPU NoSale"],
 		"qaType": ["QA Style: ", "Listened With Agent(WAVE)"],
 		"score": ["Score: ", "95"],
-		"pip": ["PIP: ", "PIP Maintain"],
+		//"pip": ["PIP: ", "PIP Maintain"],
 		"notes": ["Notes: ", "Customer was irate, agent did great job deescalating"]
 	},
 	"18": {
@@ -168,7 +168,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "iPad No Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "80"],
-		"pip": ["PIP: ", "N/A"],
+		//"pip": ["PIP: ", "N/A"],
 		"notes": ["Notes: ", " "]
 	},
 	"19": {
@@ -177,7 +177,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "CPU No Sale"],
 		"qaType": ["QA Style: ", "Listened With Agent(WAVE)"],
 		"score": ["Score: ", "60"],
-		"pip": ["PIP: ", "N/A"],
+		//"pip": ["PIP: ", "N/A"],
 		"notes": ["Notes: ", " "]
 	},
 	"20": {
@@ -186,7 +186,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "Accessory/Software Sale"],
 		"qaType": ["QA Style: ", "Side By Side"],
 		"score": ["Score: ", "95"],
-		"pip": ["PIP: ", "N/A"],
+		//"pip": ["PIP: ", "N/A"],
 		"notes": ["Notes: ", " "]
 	},
 	"21": {
@@ -195,7 +195,7 @@ var sampleQa = {
 		"sale": ["Sales Call Type: ", "Other Sale"],
 		"qaType": ["QA Style: ", "Listened(WAVE) Coached Later"],
 		"score": ["Score: ", "62"],
-		"pip": ["PIP: ", "N/A"],
+		//"pip": ["PIP: ", "N/A"],
 		"notes": ["Notes: ", " "]
 	}
 };	

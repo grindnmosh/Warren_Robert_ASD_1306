@@ -94,7 +94,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 					"<p>" + qaCall.sale[0] + " " + qaCall.sale[1] + "</p>" +
 					"<p>" + qaCall.qaType[0] + " " + qaCall.qaType[1] + "</p>" + 
 					"<p>" + qaCall.score[0] + " " + qaCall.score[1] + "</p>" +
-					"<p>" + qaCall.pip[0] + " " + qaCall.pip[1] + "</p>" +
+					//"<p>" + qaCall.pip[0] + " " + qaCall.pip[1] + "</p>" +
 					"<p>" + qaCall.notes[0] + " " + qaCall.notes[1] + "</p>"
 				);
 			var editBut = $("<button data-key='"+key+"'><a href='#add'> Edit QA</a></button>");
