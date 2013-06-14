@@ -203,8 +203,8 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 		var qa = JSON.parse(localStorage.getItem(editKey));
 		$("#name").val(qa.name[1]);
 		$("#call").val(qa.call[1]);
-		$("#sale").val(qa.sale[1]);
-		$("#qaType").val(qa.qaType[1]);
+		$("#sale").val(qa.sale[1]).selectmenu("refresh");;
+		$("#qaType").val(qa.qaType[1]).selectmenu("refresh");;
 		$("#score").val(qa.score[1]);
 		$("#notes").val(qa.notes[1]);
 		$('#saveQa').prev('.ui-btn-inner').children('.ui-btn-text').html('Update QA');
