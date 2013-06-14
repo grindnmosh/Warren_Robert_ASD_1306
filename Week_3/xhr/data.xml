@@ -1,0 +1,47 @@
+<completedPips>
+	<completed>
+		<name>Nicole</name>,
+		<call>2013-06-08</call>
+		<sale>Accessory/Software No Sale</sale>,
+		<qaType>Side By Side</qaType>,
+		<score>92</score>,
+		<pip>PIP Maintain</pip>,
+		<notes>Great improvements</notes>
+	</completed>
+	<completed>
+		<name>Alisha</name>,
+		<call>2013-06-08</call>
+		<sale>CPU No Sale</sale>,
+		<qaType>Listened With Agent(WAVE)</qaType>,
+		<score>95</score>,
+		<pip>PIP Maintain</pip>,
+		<notes>Customer was irate, agent did great job deescalating</notes>
+	</completed>
+	<completed>
+		<name>Andrea</name>,
+		<call>2013-06-08</call>
+		<sale>CPU Sale</sale>,
+		<qaType>Listened(WAVE) Coached Later</qaType>,
+		<score>90</score>,
+		<pip>PIP Maintain</pip>,
+		<notes>Make sure you are providing contact info and full next steps</notes>
+	</completed>
+	<completed>
+		<name>Donna</name>,
+		<call>2013-06-08</call>
+		<sale>Other Sale</sale>,
+		<qaType>Side By Side</qaType>,
+		<score>92</score>,
+		<pip>PIP Maintain</pip>,
+		<notes>Great improvements</notes>
+	</completed>
+	<completed>
+		<name>Paul</name>,
+		<call>2013-06-08</call>
+		<sale>iPad Sale</sale>,
+		<qaType>Listened With Agent(WAVE)</qaType>,
+		<score>100</score>,
+		<pip>PIP Maintain</pip>,
+		<notes>Great Call</notes>
+	</completed>
+</completedPips>
