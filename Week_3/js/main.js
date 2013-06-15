@@ -94,7 +94,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 					"<p>" + qaCall.sale[0] + " " + qaCall.sale[1] + "</p>" +
 					"<p>" + qaCall.qaType[0] + " " + qaCall.qaType[1] + "</p>" + 
 					"<p>" + qaCall.score[0] + " " + qaCall.score[1] + "</p>" +
-					//"<p>" + qaCall.pip[0] + " " + qaCall.pip[1] + "</p>" +
+					"<p>" + qaCall.pip[0] + " " + qaCall.pip[1] + "</p>" +
 					"<p>" + qaCall.notes[0] + " " + qaCall.notes[1] + "</p>"
 				);
 			var editBut = $("<button data-key='"+key+"'><a href='#add'> Edit QA</a></button>");
@@ -185,7 +185,33 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 			}
 		});
 	});	
-
+	$('#slouch').on('click', function () {
+			$.ajax({
+			url			:	'_view/pip',
+			dataType	:	"json",
+			success		:	function(data) {
+				$.each(data.rows, function(index, info) {
+					console.log(data.rows);
+					var makeSubList = $('<div></div>')
+					var couched = $(
+							'<p>' + "Name: " + info.value.name  + '</p>' + 
+							'<p>' + "Date: " + info.value.call + '</p>' + 
+							'<p>' + "Sales Call Type: " + info.value.sale + '</p>' + 
+							'<p>' + "Qa Type: " + info.value.qaType + '</p>' + 
+							'<p>' + "Score: " + info.value.score + '</p>' + 
+							'<p>' + "PIP: " + info.value.pip + '</p>' + 
+							'<p>' + "Notes: " + info.value.notes + '</p>' +
+							'<hr />'
+					);	
+					makeSubList.append(couched).appendTo('#couchdb');	
+				});
+				$("#couchdb").listview("refresh");
+			},
+			error : function(error,parseerror){
+				console.log("Error: " + error + "\nParse Error :" + parseerror);
+			}
+		});
+	});
         
     var deleteItem = function(editKey){
 		var ask = confirm("Are you sure you want to delete this QA entry?");
@@ -199,13 +225,12 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 		}
 	};    
     var editItem = function(editKey) {
-    	var pip = ("#addQa :radio:checked + label")
 		var qa = JSON.parse(localStorage.getItem(editKey));
 		$("#name").val(qa.name[1]);
 		$("#call").val(qa.call[1]);
 		$("#sale").val(qa.sale[1]).selectmenu("refresh");
 		$("#qaType").val(qa.qaType[1]).selectmenu("refresh");
-		$("#score").val(qa.score[1]);
+		$("#score").val(qa.score[1]).slider("refresh");
 		$("#notes").val(qa.notes[1]);
 		$('#saveQa').prev('.ui-btn-inner').children('.ui-btn-text').html('Update QA');
 		$("#saveQa").val('Update QA').data('key', editKey); 
@@ -249,3 +274,4 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 	$('#clearAllData').on('click', clearData);	
 	$("#saveQa").on("click", storeData);
     $(".display").on("click", getData);	
+    $("#").listview("refresh");
