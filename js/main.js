@@ -138,7 +138,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 							'<p>' + "Sales Call Type: " + completed.sale + '</p>' +
 							'<p>' + "QA Style: " + completed.qaType + '</p>' +
 							'<p>' + "Score: " + completed.score + '</p>' +
-							//'<p>' + "PIP: " + completed.pip + '</p>' +
+							'<p>' + "PIP: " + completed.pip + '</p>' +
 							'<p>' + "Notes: " + completed.notes + '</p>' +
 							'<hr />' +
 						'</div>'
@@ -173,7 +173,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 						'<p>' + "Sales Call Type: " + data.sale + '</p>' +
 						'<p>' + "QA Style: " + data.qaType + '</p>' +
 						'<p>' + "Score: " + data.score + '</p>' +
-						//'<p>' + "PIP: " + data.pip + '</p>' + 
+						'<p>' + "PIP: " + data.pip + '</p>' + 
 						'<p>' + "Notes: " + data.notes + '</p>' + 
 						'<hr />'
 					);
@@ -199,18 +199,16 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 		}
 	};    
     var editItem = function(editKey) {
-    	var pip = ("#addQa :radio:checked + label")
 		var qa = JSON.parse(localStorage.getItem(editKey));
 		$("#name").val(qa.name[1]);
 		$("#call").val(qa.call[1]);
 		$("#sale").val(qa.sale[1]).selectmenu("refresh");
 		$("#qaType").val(qa.qaType[1]).selectmenu("refresh");
-		$("#score").val(qa.score[1]);
+		$("#score").val(qa.score[1]).slider("refresh");
 		$("#notes").val(qa.notes[1]);
 		$('#saveQa').prev('.ui-btn-inner').children('.ui-btn-text').html('Update QA');
 		$("#saveQa").val('Update QA').data('key', editKey); 
     };
-    
     var autoFillData = function(){
         for(var n in sampleQa){
             var id = Math.floor(Math.random()*100000001);
