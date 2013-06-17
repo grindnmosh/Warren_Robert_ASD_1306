@@ -27,6 +27,15 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 				storeData(this.key);
 			}
 		});
+	    var now = new Date();
+	    var month = (now.getMonth() + 1);               
+	    var day = now.getDate();
+	    if(month < 10) 
+	        month = "0" + month;
+	    if(day < 10) 
+	        day = "0" + day;
+	    var today = now.getFullYear() + '-' + month + '-' + day;
+	    $('#due').val(today);
 	});	
 
 
