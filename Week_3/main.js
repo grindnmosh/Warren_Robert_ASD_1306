@@ -90,7 +90,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 	var getData = function(key){
 		if(localStorage.length === 0){
 			autoFillData();
-			alert("There is no data in Local Storage so default data was added.");
+			alert("There is no current QAs saved so sample QAs from server added.");
 		}
 		$.mobile.changePage("#view");
 
@@ -120,88 +120,13 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 		makeSubQa.append(createQaLi).append(editBut).append("<br>").append(deleteBut).appendTo("#qaContent");
 		}
     };
-    
-	$('#compPip').on('click', function () {
-		$.mobile.changePage("#completed",{});
-		$('#pipComp').empty();
-		$.ajax({
-			url			:	"xhr/data.xml",
-			type		:	"GET",
-			dataType	:	"xml",
-			success		:	function(data, status) {
-				alert("XML Success");
-				$(data).find("completed").each(function(){
-					var completed = {}
-						completed.name = $(this).find("name").text();
-						completed.call = $(this).find("call").text();
-						completed.sale = $(this).find("sale").text();
-						completed.qaType = $(this).find("qaType").text();
-						completed.score = $(this).find("score").text();
-						completed.pip = $(this).find("pip").text();
-						completed.notes = $(this).find("notes").text();
-						console.log(completed);
-					var makeSubList = $('<div></div>');
-					var makeSubLi = $(''+
-						'<div class="Data">' +
-							'<p>' + "Name: "  + completed.name + '</p>' +
-							'<p>' + "Date: "  + completed.call + '</p>' +
-							'<p>' + "Sales Call Type: " + completed.sale + '</p>' +
-							'<p>' + "QA Style: " + completed.qaType + '</p>' +
-							'<p>' + "Score: " + completed.score + '</p>' +
-							'<p>' + "PIP: " + completed.pip + '</p>' +
-							'<p>' + "Notes: " + completed.notes + '</p>' +
-							'<hr />' +
-						'</div>'
-					);
-					makeSubList.append(makeSubLi).appendTo('#pipComp');
-			});
-	        },
-			error : function(error,parseerror){
-				console.log("Error: " + error + "\nParse Error :" + parseerror);
-			}
-
-				
-		});
-	});	
-    
-    
-    	
-	$('#actPip').on('click', function () {
-		$.mobile.changePage("#active",{});
-		$('#pipAct').empty();
-			$.ajax({
-			url			:	"xhr/data.json",
-			type		:	"GET",
-			dataType	:	"json",
-			success		:	function(data, status) {
-				alert("JSON Success");
-				$.each(data, function(i, data) {
-					var makeSubList = $('<div></div>');
-					var makeSubLi = $(
-						'<p>' + "Name: " + data.name + '</p>' +
-						'<p>' + "Date: " + data.call + '</p>' +
-						'<p>' + "Sales Call Type: " + data.sale + '</p>' +
-						'<p>' + "QA Style: " + data.qaType + '</p>' +
-						'<p>' + "Score: " + data.score + '</p>' +
-						'<p>' + "PIP: " + data.pip + '</p>' + 
-						'<p>' + "Notes: " + data.notes + '</p>' + 
-						'<hr />'
-					);
-					makeSubList.append(makeSubLi).appendTo('#pipAct');
-				});
-			},
-			error : function(error,parseerror){
-				console.log("Error: " + error + "\nParse Error :" + parseerror);
-			}
-		});
-	});	
-	$('#slouch').on('click', function () {
-			$.ajax({
+	
+    var autoFillData = function(){
+	    $.ajax({
 			url			:	'_view/pip',
 			dataType	:	"json",
 			success		:	function(data) {
 				$.each(data.rows, function(index, info) {
-					console.log(data.rows);
 					var makeSubList = $('<div></div>')
 					var couched = $(
 							'<p>' + "Name: " + info.value.name  + '</p>' + 
@@ -213,15 +138,16 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 							'<p>' + "Notes: " + info.value.notes + '</p>' +
 							'<hr />'
 					);	
-					makeSubList.append(couched).appendTo('#couchdb');	
+					makeSubList.append(couched).appendTo('#qaContent');	
 				});
-				$("#couchdb").listview("refresh");
+				$("#qaContent").listview("refresh");
 			},
 			error : function(error,parseerror){
 				console.log("Error: " + error + "\nParse Error :" + parseerror);
 			}
 		});
-	});
+
+    };
         
     var deleteItem = function(editKey){
 		var ask = confirm("Are you sure you want to delete this QA entry?");
@@ -247,12 +173,12 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 		$("#saveQa").val('Update QA').data('key', editKey); 
     };
     
-    var autoFillData = function(){
+    /*var autoFillData = function(){
         for(var n in sampleQa){
             var id = Math.floor(Math.random()*100000001);
             localStorage.setItem(id, JSON.stringify(sampleQa[n]));
         }
-    };  
+    };  */
 
 
 	$('input').on("focus", function() {
