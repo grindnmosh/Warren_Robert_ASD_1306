@@ -74,7 +74,6 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 		$.couch.db("qaexp2").saveDoc(qa, {
 		    success: function(qa) {	
 		    	alert("QA Saved!");
-		    	$('#saveQa').attr('value', 'Add QA').removeData('key').removeData('rev');
 		    	window.location.reload("#");
 		    },
 		    error: function(status) {
