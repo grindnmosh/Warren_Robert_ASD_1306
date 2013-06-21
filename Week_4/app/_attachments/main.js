@@ -99,11 +99,10 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 							'<p>' + '<strong>' + "QA Type: " + '</strong>' + info.value.qaType + '</p>' + 
 							'<p>' + '<strong>' + "Score: " + '</strong>' + info.value.score + '</p>' + 
 							'<p>' + '<strong>' + "PIP: " + '</strong>' + info.value.pip + '</p>' + 
-							'<p>' + '<strong>' + "Notes: " + '</strong>' + info.value.notes + '</p>' +
-							'<hr />'
+							'<p>' + '<strong>' + "Notes: " + '</strong>' + info.value.notes + '</p>'
 					);	
-					var editLink = $("<a href='#addQa' id='edit"+index+"'> Edit QA</a>");
-    				editLink.on('click', function(){
+					var editLink = $("<button id=editbutt><a href='#addQa' id='edit"+index+"'> Edit QA</a></button>");
+    				editLink.on('click', function() {
     					$.couch.db("qaexp2").openDoc(id, {
     					    success: function(editKey) {
     					        console.log(editKey);
@@ -123,7 +122,7 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
     					    }
 	    				});
 	    			});
-	    			var deleteLink = $("<a href='#list' id='delete"+index+"'>Delete QA</a>");
+	    			var deleteLink = $("<button id=deletebutt><a href='#list' id='delete"+index+"'>Delete QA</a></button>");
 	    				deleteLink.on('click', function(editKey){
 	    					var ask = confirm("Are you sure you want to delete this QA?");
 	    					console.log(id, rev);
