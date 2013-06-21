@@ -74,13 +74,17 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 		$.couch.db("qaexp2").saveDoc(qa, {
 		    success: function(qa) {	
 		    	alert("QA Saved!");
+		    	$('#saveQa').attr('value', 'Add QA').removeData('key').removeData('rev');
+		    	window.location.reload("#");
 		    },
 		    error: function(status) {
 		        console.log(status);
 		    }
 		});
+		
+		return false;
 	};
-	var getData = function(){
+	var getData = function(editKey){
 		 $.couch.db("qaexp2").view("app/real", {
 			success		:	function(data) {
 				console.log(data);
@@ -102,8 +106,8 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 					var editLink = $("<a href='#addQa' id='edit"+index+"'> Edit QA</a>");
     				editLink.on('click', function(){
     					$.couch.db("qaexp2").openDoc(id, {
-    					    success: function(data) {
-    					        console.log(data);
+    					    success: function(editKey) {
+    					        console.log(editKey);
 		    					$("#name").val(info.value.name[1]);
 		    					$("#call").val(info.value.call[1]);
 		    					$("#sale").val(info.value.sale[1]).selectmenu("refresh");
@@ -121,13 +125,13 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 	    				});
 	    			});
 	    			var deleteLink = $("<a href='#list' id='delete"+index+"'>Delete QA</a>");
-	    				deleteLink.on('click', function(){
+	    				deleteLink.on('click', function(editKey){
 	    					var ask = confirm("Are you sure you want to delete this QA?");
 	    					console.log(id, rev);
 	    					if(ask){
-	    						$.couch.db("qaexp2").removeDoc(doc, {
-	    						     success: function(data) {
-	    						         console.log(data);
+	    						$.couch.db("qaexp2").removeDoc(editKey, {
+	    						     success: function(editKey) {
+	    						         console.log(editKey);
 	    						    },
 	    						    error: function(status) {
 	    						        console.log(status);
