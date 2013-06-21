@@ -18,14 +18,12 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 	});
 
 	$('#add').on('pageinit', function() {
-		delete $.validator.methods.date;
 		var qaSub = $('#addQa');
 		qaSub.validate({
 			invalidHandler: function(form, validator) {
 			},
 			submitHandler: function() {
-				var data = qaSub.serializeArray();
-				storeData(data);
+				storeData();
 			}
 		});
 	    var now = new Date();
@@ -59,13 +57,13 @@ URL: http://grind-design.com (page for new app coming soon... will be moving 1st
 	var editKey = "";
 	
 	var storeData = function(data){
-		//var key = $("#saveQa").data("key");
-		//var rev = $("#saveQa").data("rev");
+		var key = $("#saveQa").data("key");
+		var rev = $("#saveQa").data("rev");
 		var qa = {};
-		//if (rev) {
-			//qa._id = key;
-			//qa._rev = rev;
-		//}
+		if (rev) {
+			qa._id = key;
+			qa._rev = rev;
+		}
 		qa.name = $("#name").val();
 		qa.call = $("#call").val();
 		qa.sale = $("#sale").val();
