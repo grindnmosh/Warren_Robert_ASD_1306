@@ -1,6 +1,10 @@
 function(doc) {
  if (doc._id.substr(0,4) !== 'pip:'){
 		emit([doc._id, doc._rev], {
+		
+		"id": doc._id,
+		"rev": doc._rev,
+		
     	"name": doc.name,
     	"call": doc.call,
     	"sale": doc.sale,
