@@ -21,7 +21,9 @@ $('#add').on('pageinit', function () {
     qaSub.validate({
         invalidHandler: function (form, validator) {},
         submitHandler: function () {
-            storeData();
+            storeData(editKey);
+            console.log(editKey);
+            
         }
     });
     var now = new Date();
@@ -36,7 +38,7 @@ $('#add').on('pageinit', function () {
 
 
 $('#view').on('pageinit', function () {
-
+	$("#view").trigger("create");
 });
 
 $('#about').on('pageinit', function () {
@@ -50,19 +52,21 @@ $('#about').on('pageinit', function () {
 });
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
-var editKey = "";
+var editKey = null;
 
 
-var storeData = function () {
+
+var storeData = function (editKey) {
+	var qa = {};
     if (!editKey) {
-        var id = "real:" + Math.floor(Math.random() * 1000000);
-		console.log(id);
+    	var id = Math.floor(Math.random() * 1000000);
+        qa._id = "real:" + id;
     }else{
-        id=editKey
+        qa._id=editKey._id;
+        qa._rev=editKey._rev;
     }
-    var qa = {};
-    console.log(id);
-    console.log(editKey);
+    
+    console.log(qa._id);
     qa.name = $("#name").val();
     qa.call = $("#call").val();
     qa.sale = $("#sale").val();
@@ -82,6 +86,7 @@ var storeData = function () {
 	return false;
 };
 $(document).on('pageinit', '#view', function () {
+	$("#qaContent").empty();
     $.couch.db("qaexp2").view("app/real", {
         success: function (data) {
             $.each(data.rows, function (index, info) {
@@ -101,45 +106,37 @@ $(document).on('pageinit', '#view', function () {
                 var editLink = $("<button><a href='#add' id='edit" + index + "'> Edit QA</a></button>");
                 editLink.on('click', function () {
                 	console.log(id, rev);
-                    $.couch.db("qaexp2").openDoc(id, {
+                	$.couch.db("qaexp2").openDoc(id, {
                         success: function (data) {
-                            console.log(data);
-                            
-                            $("#name").val(info.value.name);
-                            $("#call").val(info.value.call);
-                            $("#sale").val(info.value.sale);
-                            $("#qaType").val(info.value.qaType);
-                            $("#score").val(info.value.score);
-                            $("#pip").val(info.value.pip);
-                            $("#notes").val(info.value.notes);
+	                        console.log(data);
+	                        $("#name").val(info.value.name);
+	                        $("#call").val(info.value.call);
+	                        $("#sale").val(info.value.sale).selectmenu("refresh");
+	                        $("#qaType").val(info.value.qaType).selectmenu("refresh");
+	                        $("#score").val(info.value.score).slider("refresh");
+	                        $("#pip").val(info.value.pip).selectmenu("refresh");
+	                        $("#notes").val(info.value.notes);
                             $('#saveQa').prev('.ui-btn-inner').children('.ui-btn-text').html('Update QA');
-                            $("#saveQa").val('Update QA').data('key', editKey);
-                            $.mobile.changePage("#add");
-                            
-                        },
-                    });
+	                        $("#saveQa").data(editKey.id);
+                    	}
+               		});
                 });
                 var deleteLink = $("<button><a href='#' id='delete" + index + "'>Delete QA</a></button>");
                 deleteLink.on('click', function () {
-                	console.log(id, rev);
 	                var ask = confirm("Are you sure you want to delete this QA?");
                     if (ask) {
                         $.couch.db("qaexp2").removeDoc(editKey, {
                             success: function (data) {
                                 console.log(data);
+                                window.location.reload("#")
                             },
                         });
-                        alert("QA was deleted.");
-                    } else {
-                        alert("QA was Not deleted.");
                     }
-                  	window.location.reload('#');
                 });
                 makeSubList.append(couched).append(editLink).append('<br>').append(deleteLink).append('<hr />').appendTo("#qaContent");
             });
-        },
-        error: function (error, parseerror) {
-            console.log("Error: " + error + "\nParse Error :" + parseerror);
+                    
+            
         }
     });
 });
@@ -177,4 +174,4 @@ var clearData = function () {
     }
 };
 $('#clearAllData ').on('click', clearData);
-$("#submit").on("click", storeData);
+$("#saveMe").on("click", storeData);

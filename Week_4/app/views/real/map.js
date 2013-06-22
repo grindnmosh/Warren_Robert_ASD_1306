@@ -1,6 +1,6 @@
 function(doc) {
- if (doc._id.substr(0,4) !== 'pip:'){
-		emit([doc._id, doc._rev], {
+ if (doc._id.substr(0,5) === 'real:'){
+    emit(doc._id.substr(5), {
 		
 		"id": doc._id,
 		"rev": doc._rev,
