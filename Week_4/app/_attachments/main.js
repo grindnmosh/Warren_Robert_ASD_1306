@@ -22,8 +22,6 @@ $('#add').on('pageinit', function () {
         invalidHandler: function (form, validator) {},
         submitHandler: function () {
             storeData(editKey);
-            console.log(editKey);
-            
         }
     });
     var now = new Date();
@@ -35,10 +33,8 @@ $('#add').on('pageinit', function () {
     $('#due').val(today);
 });
 
-
-
 $('#view').on('pageinit', function () {
-	$("#view").trigger("create");
+    $("#view").trigger("create");
 });
 
 $('#about').on('pageinit', function () {
@@ -52,20 +48,18 @@ $('#about').on('pageinit', function () {
 });
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
-var editKey = null;
-
+var editKey = "";
+var qa = {};
+var id = Math.floor(Math.random() * 1000000);
 
 
 var storeData = function (editKey) {
-	var qa = {};
     if (!editKey) {
-    	var id = Math.floor(Math.random() * 1000000);
         qa._id = "real:" + id;
     }else{
         qa._id=editKey._id;
         qa._rev=editKey._rev;
     }
-    
     console.log(qa._id);
     qa.name = $("#name").val();
     qa.call = $("#call").val();
@@ -76,23 +70,24 @@ var storeData = function (editKey) {
     qa.notes = $("#notes").val();
     $.couch.db("qaexp2").saveDoc(qa, {
         success: function (data) {
+        	console.log(data);
+        	alert("QA Saved!");
         },
-        error: function (status) {
-            console.log(status);
-        }
     });
-	alert("QA Saved!");
-	window.location.reload("#");
-	return false;
+    window.location.reload("#");
+    return false;
 };
 $(document).on('pageinit', '#view', function () {
-	$("#qaContent").empty();
+    $("#qaContent").empty();
     $.couch.db("qaexp2").view("app/real", {
         success: function (data) {
             $.each(data.rows, function (index, info) {
-                var id = info.value.id;
+            	var	id 	= info.value.id;
                 var rev = info.value.rev;
-                var editKey = {_id: id, _rev: rev};
+                var editKey = {
+                    _id: id,
+                    _rev: rev
+                };
                 var makeSubList = $('<div></div>');
                 var couched = $(
                     '<p>' + '<strong>' + "Name: " + '</strong>' + info.value.name + '</p>' +
@@ -102,41 +97,42 @@ $(document).on('pageinit', '#view', function () {
                     '<p>' + '<strong>' + "Score: " + '</strong>' + info.value.score + '</p>' +
                     '<p>' + '<strong>' + "PIP: " + '</strong>' + info.value.pip + '</p>' +
                     '<p>' + '<strong>' + "Notes: " + '</strong>' + info.value.notes + '</p>');
-                    console.log(couched);
+                console.log(couched);
                 var editLink = $("<button><a href='#add' id='edit" + index + "'> Edit QA</a></button>");
                 editLink.on('click', function () {
-                	console.log(id, rev);
-                	$.couch.db("qaexp2").openDoc(id, {
+                    console.log(editKey);
+                    $.couch.db("qaexp2").openDoc(id, {
                         success: function (data) {
-	                        console.log(data);
-	                        $("#name").val(info.value.name);
-	                        $("#call").val(info.value.call);
-	                        $("#sale").val(info.value.sale).selectmenu("refresh");
-	                        $("#qaType").val(info.value.qaType).selectmenu("refresh");
-	                        $("#score").val(info.value.score).slider("refresh");
-	                        $("#pip").val(info.value.pip).selectmenu("refresh");
-	                        $("#notes").val(info.value.notes);
+                            console.log(data);
+                            $("#name").val(info.value.name);
+                            $("#call").val(info.value.call);
+                            $("#sale").val(info.value.sale).selectmenu("refresh");
+                            $("#qaType").val(info.value.qaType).selectmenu("refresh");
+                            $("#score").val(info.value.score).slider("refresh");
+                            $("#pip").val(info.value.pip).selectmenu("refresh");
+                            $("#notes").val(info.value.notes);
                             $('#saveQa').prev('.ui-btn-inner').children('.ui-btn-text').html('Update QA');
-	                        $("#saveQa").data(editKey.id);
-                    	}
-               		});
+                            $("#saveQa").data("editKey", editKey);
+                            console.log(editKey);
+                        }
+                    });
                 });
                 var deleteLink = $("<button><a href='#' id='delete" + index + "'>Delete QA</a></button>");
                 deleteLink.on('click', function () {
-	                var ask = confirm("Are you sure you want to delete this QA?");
+                    var ask = confirm("Are you sure you want to delete this QA?");
                     if (ask) {
                         $.couch.db("qaexp2").removeDoc(editKey, {
                             success: function (data) {
                                 console.log(data);
-                                window.location.reload("#")
-                            },
+                                window.location.reload("#");
+                            }
                         });
                     }
                 });
                 makeSubList.append(couched).append(editLink).append('<br>').append(deleteLink).append('<hr />').appendTo("#qaContent");
             });
-                    
-            
+
+
         }
     });
 });
