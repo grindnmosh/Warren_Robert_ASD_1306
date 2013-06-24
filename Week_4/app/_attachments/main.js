@@ -150,7 +150,7 @@ $(document).on('pageinit', '#view', function () {
 var autoFillData = function(){
     $.couch.db("qaexp2").view("app/pip", {
         success: function (data) {
-        	var makeSubList =  $('<dl>').attr("class", "accordian");
+            var makeSubList =  $('<div>')
 			$.each(data.rows, function(index, info) {
                 var couched = $(
                     '<dd>' + '<p>' + '<strong>' + "Name: " + '</strong>' + info.value.name + '</p>' +
@@ -160,10 +160,9 @@ var autoFillData = function(){
                     '<p>' + '<strong>' + "Score: " + '</strong>' + info.value.score + '</p>' +
                     '<p>' + '<strong>' + "PIP: " + '</strong>' + info.value.pip + '</p>' +
                     '<p>' + '<strong>' + "Notes: " + '</strong>' + info.value.notes + '</p>' + '</dd>' +
-                    '<hr />');	
+                    '<hr />');
 				makeSubList.append(couched).appendTo('#qaContent');	
 			});
-			
 		},
 		error : function(error,parseerror){
 			console.log("Error: " + error + "\nParse Error :" + parseerror);
