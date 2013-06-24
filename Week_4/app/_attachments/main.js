@@ -34,17 +34,17 @@ $('#add').on('pageinit', function () {
 });
 
 $('#view').on('pageinit', function () {
-    $("#view").trigger("create");
+    
 });
 
 $('#about').on('pageinit', function () {
-    (function () {
-        $("dd").filter(":nth-child(n+4)").hide();
-        $("dt").on("click", function () {
-            $(this).next().fadeIn().siblings("dd").fadeOut();
-            return false;
-        });
-    })();
+	(function () {
+	    $("dd").filter(":nth-child(n+4)").hide();
+	    $("dt").on("click", function () {
+	        $(this).next().fadeIn().siblings("dd").fadeOut();
+	        return false;
+	    });
+	})();
 });
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
@@ -82,21 +82,27 @@ var storeData = function () {
     return false;
 };
 $(document).on('pageinit', '#view', function () {
-    $("#qaContent").empty();
-    $.couch.db("qaexp2").view("app/real", {
+    
+    
+        $.couch.db("qaexp2").view("app/real", {
         success: function (data) {
+        console.log(data.rows);
+        	if (data.rows.length == 0) {
+        		autoFillData();
+				alert("There is no saved user data so sample data was added.");
+        	};
             $.each(data.rows, function (index, info) {
             	var id 	= info.value.id;
             	var rev = info.value.rev;
-                var makeSubList = $('<div></div>');
+                var makeSubList =  $('<div>')
                 var couched = $(
-                    '<p>' + '<strong>' + "Name: " + '</strong>' + info.value.name + '</p>' +
+                    '<dd>' + '<p>' + '<strong>' + "Name: " + '</strong>' + info.value.name + '</p>' +
                     '<p>' + '<strong>' + "Date: " + '</strong>' + info.value.call + '</p>' +
                     '<p>' + '<strong>' + "Sales Call Type: " + '</strong>' + info.value.sale + '</p>' +
                     '<p>' + '<strong>' + "QA Type: " + '</strong>' + info.value.qaType + '</p>' +
                     '<p>' + '<strong>' + "Score: " + '</strong>' + info.value.score + '</p>' +
                     '<p>' + '<strong>' + "PIP: " + '</strong>' + info.value.pip + '</p>' +
-                    '<p>' + '<strong>' + "Notes: " + '</strong>' + info.value.notes + '</p>');
+                    '<p>' + '<strong>' + "Notes: " + '</strong>' + info.value.notes + '</p>' + '</dd>');
                 var editLink = $("<button><a href='#add' id='edit" + index + "'> Edit QA</a></button>");
                 editLink.on('click', function () {
                     $.couch.db("qaexp2").openDoc(id, {
@@ -141,6 +147,30 @@ $(document).on('pageinit', '#view', function () {
     });
 });
 
+var autoFillData = function(){
+    $.couch.db("qaexp2").view("app/pip", {
+        success: function (data) {
+        	var makeSubList =  $('<dl>').attr("class", "accordian");
+			$.each(data.rows, function(index, info) {
+                var couched = $(
+                    '<dd>' + '<p>' + '<strong>' + "Name: " + '</strong>' + info.value.name + '</p>' +
+                    '<p>' + '<strong>' + "Date: " + '</strong>' + info.value.call + '</p>' +
+                    '<p>' + '<strong>' + "Sales Call Type: " + '</strong>' + info.value.sale + '</p>' +
+                    '<p>' + '<strong>' + "QA Type: " + '</strong>' + info.value.qaType + '</p>' +
+                    '<p>' + '<strong>' + "Score: " + '</strong>' + info.value.score + '</p>' +
+                    '<p>' + '<strong>' + "PIP: " + '</strong>' + info.value.pip + '</p>' +
+                    '<p>' + '<strong>' + "Notes: " + '</strong>' + info.value.notes + '</p>' + '</dd>' +
+                    '<hr />');	
+				makeSubList.append(couched).appendTo('#qaContent');	
+			});
+			
+		},
+		error : function(error,parseerror){
+			console.log("Error: " + error + "\nParse Error :" + parseerror);
+		}
+	});
+};
+
 $('input').on("focus", function () {
     var $this = $(this).parent();
     $this.addClass('highlight');
@@ -157,6 +187,9 @@ $("textarea").on("focus", function () {
     });
     return false;
 });
+
+	
+
 
 var clearData = function () {
     if (localStorage.length === 0) {

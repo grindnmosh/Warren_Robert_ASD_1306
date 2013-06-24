@@ -42,10 +42,14 @@ p {
 	background-color: white;
 	border: 4px solid blue;
 }
+.accordion dd {
+	display:none;
+}
 dd {
 	margin: 0;
 	padding: 1em 0;
-	background: lightblue;
+	background: white;
+	border: 1px solid black;
 }
 dt{
 	cursor: pointer;
